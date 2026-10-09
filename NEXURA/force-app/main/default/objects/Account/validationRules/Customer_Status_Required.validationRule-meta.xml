@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Status_Required</fullName>
+    <active>true</active>
+    <description>Ensures that every customer Account has a valid operational status to support consistent servicing decisions, reporting, and downstream automation.</description>
+    <errorConditionFormula>ISBLANK(TEXT(Customer_Status__c))</errorConditionFormula>
+    <errorDisplayField>Customer_Status__c</errorDisplayField>
+    <errorMessage>Please select a Customer Status before saving this Account.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Number__c</fullName>
+    <description>System-generated unique business reference assigned to each NEXURA customer Account. Used for customer identification, operational searches, reporting, and reference in service processes.</description>
+    <displayFormat>CUST-{00000}</displayFormat>
+    <externalId>false</externalId>
+    <inlineHelpText>This number is generated automatically by Salesforce. Use it when referencing this customer in NEXURA operations. Do not enter or modify it manually.</inlineHelpText>
+    <label>Customer Number</label>
+    <type>AutoNumber</type>
+</CustomField>
