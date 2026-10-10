@@ -101,5 +101,13 @@
         <members>Account.Billing</members>
         <name>WebLink</name>
     </types>
+    <types>
+    <members>Product2</members>
+    <name>CustomObject</name>
+</types>
+<types>
+    <members>Product2.Product_Category__c</members>
+    <name>CustomField</name>
+</types>
     <version>67.0</version>
 </Package>
