@@ -1,0 +1,31 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref1"
+            },
+            "Name": "Nexura Wireless Headphones",
+            "ProductCode": "NEX-AUD-001",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref2"
+            },
+            "Name": "Nexura Smart Watch",
+            "ProductCode": "NEX-WEA-001",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref3"
+            },
+            "Name": "Nexura USB-C Charger",
+            "ProductCode": "NEX-ACC-001",
+            "IsActive": true
+        }
+    ]
+}
