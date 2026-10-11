@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Additional permissions for NEXURA sales users, combining the permissions required for sales operations.</description>
+    <hasActivationRequired>true</hasActivationRequired>
+    <label>NEXURA Sales User Group</label>
+    <permissionSets>NEXURA_Order_Access</permissionSets>
+    <permissionSets>NEXURA_Sales_Access_Permission</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
