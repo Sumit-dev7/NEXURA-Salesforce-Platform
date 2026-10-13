@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>NEXURA_Sales_Account_Sharing</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>NEXURA Sales Account Sharing</label>
+        <sharedTo>
+            <group>NEXURA_Sales_Team</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>NEXURA_Sales_Team</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

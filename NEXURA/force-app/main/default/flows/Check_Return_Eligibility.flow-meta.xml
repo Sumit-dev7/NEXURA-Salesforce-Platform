@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Set_Already_Returned_Response</name>
+        <label>Set Already Returned Response</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>returnResponse</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>This order has already been returned.</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Eligible_Response</name>
+        <label>Set Eligible Response</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>returnResponse</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>This order is eligible for return.</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Not_Eligible_Response</name>
+        <label>Set Not Eligible Response</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>returnResponse</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>This order is not eligible for return.</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Unknown_Response</name>
+        <label>Set Unknown Response</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>returnResponse</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>I could not determine the return eligibility for this order.</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Check_Return_Status</name>
+        <label>Check Return Status</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Set_Unknown_Response</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Eligible</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Nexura_Order.Return_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Eligible</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Eligible_Response</targetReference>
+            </connector>
+            <label>Eligible</label>
+        </rules>
+        <rules>
+            <name>Not_Eligible</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Nexura_Order.Return_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Eligible</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Not_Eligible_Response</targetReference>
+            </connector>
+            <label>Not Eligible</label>
+        </rules>
+        <rules>
+            <name>Already_Returned</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Nexura_Order.Return_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Already Returned</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Already_Returned_Response</targetReference>
+            </connector>
+            <label>Already Returned</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Check Return Eligibility {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Check Return Eligibility</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Nexura_Order</name>
+        <label>Get Nexura Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Return_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>orderNumber</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Nexura_Order__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Nexura_Order</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>orderNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>returnResponse</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>
