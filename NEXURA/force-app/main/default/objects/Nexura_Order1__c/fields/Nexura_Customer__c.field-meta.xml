@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nexura_Customer__c</fullName>
+    <label>Nexura Customer</label>
+    <referenceTo>Nexura_Customer__c</referenceTo>
+    <relationshipLabel>Nexura Order</relationshipLabel>
+    <relationshipName>Nexura_Order</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

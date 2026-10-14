@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows custom permissions for Agentforce Agent : BankSphere_Banking_Agent&apos;s agent user : banksphere_banking_agent@00dgl00000awg2u1146474469.ext.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BankSphere_Banking_Agent2084842508 Permissions</label>
+    <license>Einstein Agent</license>
+</PermissionSet>

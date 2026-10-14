@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>false</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>NEXURA Customer Support Queue</name>
+    <queueMembers>
+        <users>
+            <user>nexura_customer_service_agent@00dgl00000awg2u1074560894.ext</user>
+            <user>insightssecurity@00dgl00000awg2uuae.com</user>
+            <user>sumitkumarpanda94.3d2e9f536eff@agentforce.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

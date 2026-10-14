@@ -347,6 +347,11 @@
             <actionType>ProductivityAction</actionType>
             <sortOrder>26</sortOrder>
         </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Account.New_Customer_Contact</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>27</sortOrder>
+        </platformActionListItems>
     </platformActionList>
     <quickActionList>
         <quickActionListItems>
