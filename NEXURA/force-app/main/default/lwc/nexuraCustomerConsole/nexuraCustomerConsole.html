@@ -1,0 +1,32 @@
+
+<template>
+    <lightning-card title="NEXURA Customer Console"
+                    icon-name="standard:account">
+        <div class="slds-p-around_medium">
+
+            <template lwc:if={hasCustomers}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={customers}
+                    columns={columns}>
+                </lightning-datatable>
+            </template>
+
+            <template lwc:if={hasError}>
+                <div class="slds-text-color_error">
+                    Unable to load customer records.
+                </div>
+            </template>
+
+            <template lwc:if={customersResult.data}>
+                <template lwc:if={customersResult.data.length}>
+                    <!-- Customer records are displayed above. -->
+                </template>
+                <template lwc:else>
+                    <p>No customers found.</p>
+                </template>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

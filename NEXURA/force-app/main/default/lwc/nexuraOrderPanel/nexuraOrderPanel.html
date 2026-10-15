@@ -1,0 +1,53 @@
+
+<template>
+    <lightning-card
+        title="NEXURA Order Console"
+        icon-name="standard:orders">
+
+        <div class="slds-p-around_medium">
+
+            <div class="slds-grid slds-gutters slds-m-bottom_medium">
+                <div class="slds-col">
+                    <lightning-input
+                        type="search"
+                        label="Search Orders"
+                        placeholder="Search order, customer, or status"
+                        value={searchTerm}
+                        onchange={handleSearch}>
+                    </lightning-input>
+                </div>
+
+                <div class="slds-col slds-grow-none slds-align-bottom">
+                    <lightning-button
+                        label="Refresh"
+                        icon-name="utility:refresh"
+                        onclick={handleRefresh}>
+                    </lightning-button>
+                </div>
+            </div>
+
+            <template lwc:if={hasError}>
+                <div class="slds-text-color_error slds-m-bottom_small">
+                    {errorMessage}
+                </div>
+            </template>
+
+            <template lwc:if={hasOrders}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={filteredOrders}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+
+            <template lwc:else>
+                <p class="slds-text-color_weak">
+                    No orders to display. Orders will appear after the Apex
+                    controller is connected.
+                </p>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>
